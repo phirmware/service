@@ -1,0 +1,42 @@
+<% include ./partials/header %>
+ 
+ <div class="container">
+     <div class="jumbotron bg-dark">
+     <h1 style="text-align:center;color:white"><%= user.user %></h1>
+     </div>
+     <div class="row">
+         <div class="col-lg-12">
+             <ul class="list-group">
+                 <% for(var i = 0;i<user.services.length;i++){ %>
+                 <li class="list-group-item">
+                 <%= user.services[i].services %>
+                 </li>
+                 <% } %>
+             </ul>
+             <br>
+            <a href="/" class="btn btn-info">go back</a>
+            <br>
+            <br>
+            <!-- <form method="POST" action="/category/<%= user._id %>/delete?_method=DELETE">
+                   <button class="btn btn-danger">Delete</button> 
+                 </form> -->
+         </div>
+     </div>
+     <br>
+     <% if(currentuser && currentuser.username == user.user){ %>
+     <div class="jumbotron bg-dark">
+         <h4 style="text-align:center;color:white">Add Service</h4>
+     </div>
+     <div class="col-lg-12">
+         <form class="form-group" method="POST" action="/user/<%= user._id %>/services">
+             <input class="form-control" type="text" name="service" placeholder="Add Services">
+             <br>
+             <input type="submit" value="Add" class="btn btn-primary">
+         </form>
+     </div>
+     <% } else{ %>
+         <h2></h2>
+     <% } %>
+ </div> 
+
+<% include ./partials/footer %>
