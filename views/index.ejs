@@ -141,7 +141,7 @@ a:hover{
           }
       .img-fluid{
           max-width:100%;
-          height:180px;
+          height:100%;
           }
       #topservice{
           color:white;
@@ -166,7 +166,7 @@ a:hover{
         background:black;
             }
       .carousel-indicators .active{
-          background:blue;
+          background:darkblue;
             }
       .fa-user{
           font-size:25px;
@@ -236,7 +236,10 @@ a:hover{
        }
        .dark{
          margin-top:6%;
-     }
+       }
+       #otherservicessmall{
+           display:none;
+       }
 }
  @media screen and (max-width: 380px) {
       #card{
@@ -315,7 +318,7 @@ a:hover{
                 <span id="user" style="color:black;margin-left:55%;"><span class="badge badge-dark dark" style="color:black;font-size:30px;"><a id="loginlogo" href="/login">login/signup</a></span></span>
                 
         <% } else{ %>
-                <span id="user" style="color:black;margin-left:55%;"><span class="badge badge-dark dark" style="color:black;font-size:29px"><i class="fas fa-user-circle"></i><%= currentuser.username %></span></span>
+                <span id="user" style="color:black;margin-left:55%;"><span class="badge badge-dark dark" style="color:black;font-size:29px"><a href="/logout"><i class="fas fa-user-circle"></i><%= currentuser.username %></a></span></span>
         <% } %>
     </div>
   </div>
@@ -458,6 +461,68 @@ a:hover{
 
  </div>
 </div>
+<br>
+<br>
+
+<!-- Other services for small screen  -->
+<div class="container" id="otherservicessmall">
+    <div class="row">
+    <div class="col">
+    <h5 id="topsmallscreen" style="font-weight:bolder">Get Services</h5>
+       <% for(var i = 0;i<user.length;i++){ %>
+       <a href="/user/<%= user[i]._id %>">
+       <div class="cardsmall" style="width:50%;float:left">
+        <img src="http://www.hotellaginestra.it/wp-content/uploads/2016/06/person-flat.png" alt="Avatar" style="width:100%">
+        <div class="containersmall" style="color:black;font-weight:bold">
+          <%= user[i].user %> 
+        </div>
+        </div>
+        </a>
+       <% } %>
+       </div>
+    </div>
+</div>
+<!-- Other services for small screen -->
+
+
+<!-- Other services for big screen -->
+<div class="container">
+    <div class="row">
+         <div class="col-lg-12 topservices">
+  <br>
+  <h2 style="text-align:center;font-family: Nixie One;" class="ui huge centered header shadow-lg" id="topservice"><b style="font-weight:bolder">Get-services</b></h2><br>
+   <div class="flex-container">
+   <div class="ui link cards">
+    <% for(var i = 0;i<user.length;i++){ %>
+  
+    <div class="card ui huge centered header shadow-lg" id="card">
+       <div class="content">
+         <div class="header">
+         <%= user[i].user %>
+         </div>
+         <div class="meta">
+           
+         </div>
+         <div class="description">
+            Top Service of the month
+         </div>
+        </div>
+        <div class="extra content">
+           <div class="ui two buttons">
+              <a href="/user/<%= user[i]._id %>"> <div style="color:black;" class="ui green fluid button">more</div></a>
+           </div>
+        </div>
+    </div>
+  
+    <% } %>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<!-- Other services for big screen -->
+
 <hr>
 <% if(!currentuser){ %>
 <div><div>
