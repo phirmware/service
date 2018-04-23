@@ -118,6 +118,7 @@ app.post("/",isLoggedIn,function(req, res) {
 });
 
 
+
 app.get("/category/:id/pos/:bum", function(req, res) {
   var category = req.params.id;
   var pos = req.params.bum;
