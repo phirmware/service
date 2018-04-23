@@ -92,14 +92,14 @@ a:hover{
           }
       .navbar{
           overflow:scroll;
-          border-bottom:0.5px solid black;
+          border-bottom:0.5px solid white;
           }
       .navbar-toggler{
           border: 2px solid black;
-          background:green;
+          background:linear-gradient(lightblue,blue,blue);
           }
       .navbar-toggler-icon{
-          background:green;
+          background:linear-gradient(lightblue,blue,blue);
           }
       button:focus{
           outline:none;
@@ -107,13 +107,19 @@ a:hover{
       .navbar-dark .navbar-nav .nav-link{
           background:white;
           color:black;
-          font-weight:bold;
+          font-weight:600;
           border-bottom:0.2px solid lightgray;
+          font-family: Coda;
+          font-style: normal;
+	      font-variant: normal;
           }
+      .navbar-dark .navbar-nav .nav-link:active{
+          color:blue;
+       } 
       .navbar-dark .navbar-brand{
-          margin:0px auto;
+          font-size:1.45rem;
           font-weight:bolder;
-          font-family: "Hammersmith One";
+          font-family: Ubuntu;
           color:black;
           }
       .badge{
@@ -127,7 +133,7 @@ a:hover{
           display:none;
           }
       .navbar-dark .navbar-toggler{
-          border-color:green;
+          border-color:darkblue;
           }
       .topservices{
           display:none;
@@ -135,7 +141,7 @@ a:hover{
           }
       .img-fluid{
           max-width:100%;
-          height:auto;
+          height:180px;
           }
       #topservice{
           color:white;
@@ -152,13 +158,15 @@ a:hover{
       #thanos{
           margin-left:0%;
           color:black;
-          padding:0.2em 
+          padding:0.2em;
+          font-size:28px;
+          font-family: "Sigmar One";
              }
       .carousel-indicators li{
         background:black;
             }
       .carousel-indicators .active{
-          background:green;
+          background:blue;
             }
       .fa-user{
           font-size:25px;
@@ -198,18 +206,19 @@ a:hover{
           margin-left:30%;
           margin:10px auto;
           font-weight:bolder;
-          font-family: "Hammersmith One";
+          font-size:1.45rem;
+          font-family: Ubuntu;
           color:black;
           }
       #scrollmenu{
           margin-top:40px;
           }
-      #w3-sidebar{
-        display:none;
-      }
       #large{
           display:none;
-      }
+          }
+      .ui.button, .ui.buttons .button, .ui.buttons .or {
+          font-size: 0.7rem;
+          }
     }
 @media screen and (min-width: 720px) {
       .navbar {
@@ -219,11 +228,15 @@ a:hover{
     display:none;
           }
         #loginlogo{
-            font-weight:bold;
+            font-family:"Hammersmith One";
+            font-weight:100;
         }
        #loginlogo:hover{
             color:blue;
        }
+       .dark{
+         margin-top:6%;
+     }
 }
  @media screen and (max-width: 380px) {
       #card{
@@ -233,10 +246,21 @@ a:hover{
           margin-left:33%;
           }
 }
+ @media screen and (max-width:1200px) and (min-width:720px){
+     #w3-sidebar{
+         display:none;
+     }
+     #user{
+        width:50%;
+     }
+     .dark{
+         margin-top:6%;
+     }
+ }
 </style>
 
 <!--side bar-->
-   <div id="w3-sidebar hidesidebar" class="w3-sidebar w3-bar-block w3-black w3-xxlarge d-none d-sm-block" style="width:70px">
+   <div id="w3-sidebar" class="w3-sidebar w3-bar-block w3-black w3-xxlarge" style="width:70px">
         <a href="#home" class="w3-bar-item w3-button" title="home">
             <i class="fa fa-home"></i>
         </a>
@@ -262,9 +286,9 @@ a:hover{
 
    
 <!--  jumbotron for small screen -->
-<nav class="navbar navbar-expand-md  navbar-dark ui huge centered header shadow-lg" style="background:green;border-bottom:0px solid white;">
+<nav class="navbar navbar-expand-md  navbar-dark" style="background:white;border-bottom:0px solid white;">
   <!-- Brand -->
-  <a class="navbar-brand ui huge centered header shadow-lg" id="thanos" href="#" style:"font-weight:bolder;"> i services </a>
+  <a class="navbar-brand" id="thanos" href="#" style:"font-weight:bolder;"> i services </a>
 
   <!-- Toggler/collapsibe Button -->
    <% if(!currentuser){ %>
@@ -273,7 +297,7 @@ a:hover{
      </a>
    <% } else{ %>
      <a href="/logout" class="navbar-right" title="logout <%= currentuser.username %>">
-     <span><b style="font-size:18px"><%= currentuser.username %> </b> <i style="color:darkred" class="fas fa-user"></i></span>
+     <span><b style="font-size:18px"><%= currentuser.username %> </b> <i style="color:darkblue" class="fas fa-user"></i></span>
      </a>   
    <% } %>
   </a>
@@ -283,15 +307,15 @@ a:hover{
 <!--  Jumbotron for large screen    -->
 <div class="container" id="large">
   <div class="row">
-    <div class="col-lg-12">
-    <br>
-       <span style="text-align:left;color:green" class="platformlogo"><span class="badge badge-dark " style="color:black;"><span class="eye"> i</span> Services</span></span>
-
+    <div class="col-lg-6">
+       <span style="text-align:left;color:green;" class="platformlogo"><span class="badge badge-dark " style="color:black;"><span class="eye"> i</span> Services</span></span>
+    </div>
+    <div class="col-lg-6">
         <% if(!currentuser){ %>
-                <span style="color:black;margin-left:55%;"><span class="badge badge-dark" style="color:black;font-size:30px"><a id="loginlogo" href="/login">login/signup</a></span></span>
+                <span id="user" style="color:black;margin-left:55%;"><span class="badge badge-dark dark" style="color:black;font-size:30px;"><a id="loginlogo" href="/login">login/signup</a></span></span>
                 
         <% } else{ %>
-                <span style="color:black;margin-left:55%;"><span class="badge badge-dark" style="color:black;font-size:29px"><i class="fas fa-user-circle"></i><%= currentuser.username %></span></span>
+                <span id="user" style="color:black;margin-left:55%;"><span class="badge badge-dark dark" style="color:black;font-size:29px"><i class="fas fa-user-circle"></i><%= currentuser.username %></span></span>
         <% } %>
     </div>
   </div>
@@ -384,8 +408,8 @@ a:hover{
   <% for(var i = 0;i<category.length;i++){ %>
   <a href="/user/<%= category[i].user[0]._id %>">
      <div class="cardsmall" style="width:100%;">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
-        <div class="containersmall" style="color:black">
+        <img src="https://imgur.com/I80W1Q0.png" alt="Avatar" style="width:100%">
+        <div class="containersmall" style="color:black;font-weight:bold">
           <%= category[i].user[0].user %> 
         </div>
      </div>
@@ -459,7 +483,26 @@ a:hover{
 </div>
 <% } %>
 <div class="jumbotron text-center" style="margin-bottom:0px;background:linear-gradient(black,black)">
-  <p>Footer</p>
+  <p style="color:white;font-size:20px;">Stay with us : </p><button class="ui facebook button">
+  <i class="facebook icon"></i>
+  Facebook
+</button>
+<button class="ui twitter button">
+  <i class="twitter icon"></i>
+  Twitter
+</button>
+<button class="ui google plus button">
+  <i class="google plus icon"></i>
+  Google Plus
+</button>
+<button class="ui linkedin button">
+  <i class="linkedin icon"></i>
+  LinkedIn
+</button>
+<button class="ui instagram button">
+  <i class="instagram icon"></i>
+  Instagram
+</button>
 </div>
 
 <% include ./partials/footer %>
