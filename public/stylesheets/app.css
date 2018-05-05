@@ -1,3 +1,8 @@
 body{
     height:100%;
 }
+
+.trans{
+    transition: 0.5s;
+}
+

@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+<style>
+  
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="jumbotron">
+            <div class="container">
+                <h3>Edit Your Profile</h3><a href="/user/<%= presentUser._id %>/profile" class="btn btn-warning">Back</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-group">
+                    <form action="/user/<%= presentUser._id %>/profile?_method=PUT" method="POST">
+                        <li class="list-group-item"><span style="margin-right:20px;font-size:20px;color:blue">Name:</span><input type="text" name="username" value="<%= presentUser.username %>" class="form-control"></li> 
+                        <li class="list-group-item"><span style="margin-right:20px;font-size:20px;color:blue">Location:</span><input type="text" name="location" value="<%= presentUser.location %>" class="form-control"></li>
+                         <li class="list-group-item"><span style="margin-right:20px;font-size:20px;color:blue">Phone Number:</span><input type="text" name="phonenumber" value="<%= presentUser.phonenumber %>" class="form-control"></li> 
+                        <input class="btn btn-primary" type="submit" value="update">
+                    </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer %>
