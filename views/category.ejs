@@ -23,6 +23,7 @@
     .jumbotron{
         background:blue;
     }
+
    @media screen and (max-width: 780px) {
         #card {
             width:45%;
@@ -46,15 +47,13 @@
         <div class="ui cards">
              <% for(var i = 0 ;i<foundCategory[0].user.length;i++){ %>
                 <div class="ui card" id="card">
-                   <div class="content">
+                <div class="image" style="height:60%">
+                <img src="/uploads/<%= foundCategory[0].user[i].image %>" alt="add icon image" style="height:100%">
+              </div>
+                <div class="content">
                     <div class="center aligned header"><%= foundCategory[0].user[i].user %></div>
                     <div class="center aligned description">
                        <a href="/user/<%= foundCategory[0].user[i]._id %>" class="btn btn-primary"><p>more</p></a>
-                    </div>
-                   </div>
-                   <div class="extra content">
-                    <div class="center aligned author">
-                       <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg"> Jenny
                     </div>
                    </div>
                 </div>

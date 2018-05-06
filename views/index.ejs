@@ -10,6 +10,7 @@ form{
 #card{
     float:left;
     width:22%;
+    height:300px;
     }
 .jumbotron{
     background:linear-gradient(darkblue,darkblue,blue);
@@ -509,11 +510,11 @@ a:hover{
     <% for(var i = 0;i<category.length;i++){ %>
   
     <div class="card ui huge centered header shadow-lg" id="card">
-       <div class="image">
-         <img src="./uploads/<%= category[i].user[0].image %>"  alt="Open your page and add icon image">
+       <div class="image" style="height:38%">
+         <img src="./uploads/<%= category[i].user[0].image %>"  alt="Open your page and add icon image" style="height:100%;">
        </div>
        <div class="content">
-         <div class="header">
+         <div class="header" style="font-size:15px">
          <%= category[i].user[0].user %>
          </div>
          <div class="meta">
