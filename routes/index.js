@@ -32,7 +32,7 @@ router.get("/", function(req, res) {
   });
   
   router.post("/", isLoggedIn, function(req, res) {
-    var name = req.body.user;
+    var name = req.user.username;
     var services = req.body.services;
     var category = req.body.category;
     var data = {

@@ -20,6 +20,9 @@ var upload = multer({
   storage:storage
 }).single('myImage');
 
+var uploadId = multer({
+  storage:storage
+}).single('myImage1');
 
 
 
@@ -68,6 +71,30 @@ router.get("/", function(req, res) {
       }
     });
   });
+   
+  router.post('/image',function(req,res){
+    uploadId(req,res,(err)=>{
+     if(err){
+       console.log(err);
+     } else{
+       User.findById(req.params.id,function(err,user){
+         if(err){
+           console.log(err);
+         } else{
+           user.image = req.file.filename;
+           user.save(function(err,user){
+             if(err){
+               console.log(err);
+             } else{
+              res.redirect("/user/" + req.params.id);
+             }
+           })
+         }
+       })
+     }
+    })
+  });
+  
 
   router.get('/profile',function(req,res){
     appUser.findById(req.params.id,function(err,presentUser){

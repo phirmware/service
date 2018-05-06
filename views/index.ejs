@@ -509,6 +509,9 @@ a:hover{
     <% for(var i = 0;i<category.length;i++){ %>
   
     <div class="card ui huge centered header shadow-lg" id="card">
+       <div class="image">
+         <img src="./uploads/<%= category[i].user[0].image %>"  alt="Open your page and add icon image">
+       </div>
        <div class="content">
          <div class="header">
          <%= category[i].user[0].user %>
@@ -548,9 +551,6 @@ a:hover{
     <form class="form-group" method="POST" action="/">
         <label for="category">Category</label>
         <input type="text" name="category" id="category" class="form-control ui huge centered header shadow-lg" placeholder="category" required>
-        <br>
-        <label for="user">Add User</label>
-        <input id="user" type="text" class="form-control ui huge centered header shadow-lg" name="user" placeholder="user" required>
         <br>
         <label for="services">Services</label>
         <input id="services" type="text" class="form-control ui huge centered header shadow-lg"  name="services" placeholder="services">

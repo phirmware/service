@@ -5,7 +5,7 @@ var loggedinUserSchema = new mongoose.Schema({
     username:String,
     password:String,
     location:String,
-    phonenumber:String
+    phonenumber:String,
 });
 
 loggedinUserSchema.plugin(passportLocalMongoose);
